@@ -159,6 +159,26 @@ a {
 		transform: translateY(-1px);
 }
 
+.badge-allure {
+	width: 60px;
+	height: 60px;
+	background-image: url("../img/sticker.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	color: transparent;
+}
+
+hr {
+	margin: 0;
+	border: none;
+	background-color: #fff;
+	height: 1px;
+}
+
+.title {
+	font-size: var(--text-lg);
+}
+
 /*---------
 	HEADER
 ---------*/
@@ -384,12 +404,6 @@ a {
 
 .card__badge {
 	position: absolute;
-	width: 60px;
-	height: 60px;
-	background-image: url("../img/sticker.png");
-	background-size: contain;
-	background-repeat: no-repeat;
-	color: transparent;
 	top: 25px;
 	right: 25px;
 }
@@ -439,3 +453,53 @@ a {
 		transform: translateY(-2px);
 	}
 }
+
+/*-----------
+	Spotlight
+-----------*/
+.spotlight {
+	padding: 20px 0;
+}
+
+.spotlight__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.spotlight__img {
+	border-radius: 20px;
+}
+
+.spotlight__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 45px;
+}
+
+.content__badge {
+
+}
+
+.content__title {
+	max-width: 425px;
+}
+
+.spotlight__description {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	max-width: 415px;
+	line-height: var(--lh-heading);
+}
+
+.spotlight__link {
+	background-color: #90AAFF;
+}
+
+.spotlight__link:hover {
+	background-color: #8aa7ff;
+}
+
