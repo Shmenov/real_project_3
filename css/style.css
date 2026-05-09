@@ -486,8 +486,12 @@ hr {
 
 .spotlight .container {
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	gap: 110px;
+}
+
+.spotlight__content,
+.spotlight__image-block {
+	flex: 1;
 }
 
 .spotlight__image-block {
@@ -661,6 +665,8 @@ hr {
 }
 
 .footer__instagram {
+	width: 16px;
+	height: 16px;
 	margin-top: auto; 
 	display: inline-block; 
 	transition: all var(--transition-normal);
@@ -711,4 +717,87 @@ hr {
 
 .footer__copyright {
 	color: #666;
+}
+
+/*-----------------------
+	ADAPTATION - Desktops
+		1440 - 1024 px
+-----------------------*/
+
+
+
+/*-----------------------
+	ADAPTATION - Tablets
+		1024 - 768 px
+-----------------------*/
+
+@media (max-width: 1020px) {
+	:root {
+	--text-xs: 1.2rem;
+	--text-sm: 1.3rem;
+	--text-lg: 3.0rem;
+	--text-xl: 4.7rem;
+	}
+
+	.hero {
+		height: auto;
+		aspect-ratio: 16 / 9;
+		min-height: 400px;
+	}
+
+	.description, .products, .footer {
+		padding: 60px 0;
+	}
+
+	.description__text {
+		max-width: 450px;
+	}
+
+	.products__cards {
+		display: flex;
+		overflow-x: auto;
+		scrollbar-width: none; 
+		scroll-snap-type: x mandatory; 
+	}
+
+	.products__cards::-webkit-scrollbar {
+		display: none;
+	}
+
+	.card {
+		flex: 0 0 280px; 
+		scroll-snap-align: start;
+	}
+
+	.card__button {
+		padding: 9px 0;
+	}
+
+	.spotlight__title {
+		max-width: 325px;
+	}
+
+	.spotlight .container {
+		gap: 0;
+	}
+
+	.spotlight__description {
+		max-width: 305px;
+	}
+
+	.basics .container {
+		gap: 0;
+	}
+
+	.basics__title {
+		max-width: 310px;
+	}
+
+	.basics__text {
+		max-width: 265px;
+	}
+
+	.button {
+		padding: 1px 80px;
+	}
 }
