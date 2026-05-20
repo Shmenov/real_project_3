@@ -29,7 +29,14 @@
 <body>
 	<header class="header">
 		<div class="container">
-			<nav class="header__nav">
+			
+			<button class="burger btn-reset" aria-label="Открыть меню" aria-expanded="false" id="burger">
+				<span class="burger__line"></span>
+				<span class="burger__line"></span>
+				<span class="burger__line"></span>
+			</button>
+
+			<nav class="header__nav" id="menu">
 				<ul class="header__list">
 					<li><a href="#" class="header__link">Shop All</a></li>
 					<li><a href="#" class="header__link">Gifts</a></li>
@@ -75,7 +82,7 @@
 
 				<div class="products__cards">
 					<article class="card">
-						<a href="#" class="card__image-wrapper">
+						<a href="#" class="card__image-wrapper card__image-wrapper--razor">
 							<video class="card__img" autoplay loop muted playsinline poster="/img/cards/card-1.png">
 								<source src="/img/cards/card-1.webm" type="video/webm">
 								<source src="/img/cards/card-1.mp4" type="video/mp4">
@@ -203,5 +210,6 @@
 			</div>
 		</div>
 	</footer>
+	<script src="/js/index.js"></script>
 </body>
 </html>

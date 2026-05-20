@@ -73,11 +73,11 @@ html {
 	--fw-light: 400;
 	--fw-bold: 700;
 
-	--text-xs: 1.4rem;
-	--text-sm: 1.8rem;
+	--text-xs: clamp(1.2rem, 1.1rem + 0.3vw, 1.4rem);
+	--text-sm: clamp(1.3rem, 1.1rem + 0.6vw, 1.8rem);
 	--text-md: 2.1rem;
-	--text-lg: 4.3rem;
-	--text-xl: 6.6rem;
+	--text-lg: clamp(2.7rem, 2.2rem + 1.5vw, 4.3rem);
+	--text-xl: clamp(3.50rem, calc(2.614rem + 2.768vw), 6.60rem);
 
 	--lh-tight: 1.27;
 	--lh-heading: 1.35;
@@ -295,6 +295,31 @@ hr {
 	.account:hover {
 		opacity: 0.5;
 	}
+}
+
+.burger {
+	display: none;
+	width: 24px;
+	height: 18px;
+	position: relative;
+	z-index: 100;
+	flex-direction: column;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.burger__line {
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: #000;
+	transition: all var(--transition-normal);
+}
+
+html.no-scroll,
+body.no-scroll {
+	overflow: hidden;
+	height: 100vh; 
 }
 
 /*------
@@ -731,14 +756,7 @@ hr {
 		1024 - 768 px
 -----------------------*/
 
-@media (max-width: 1020px) {
-	:root {
-	--text-xs: 1.2rem;
-	--text-sm: 1.3rem;
-	--text-lg: 3.0rem;
-	--text-xl: 4.7rem;
-	}
-
+@media (max-width: 1024px) {
 	.hero {
 		height: auto;
 		aspect-ratio: 16 / 9;
@@ -799,5 +817,164 @@ hr {
 
 	.button {
 		padding: 1px 80px;
+	}
+}
+
+/*-----------------------
+	ADAPTATION - Phones
+		768 - 320 px
+-----------------------*/
+@media (max-width: 750px) {
+	.hero {
+		background-image: url("/img/hero/hero__mobile.png");
+		background-position: top center;
+		aspect-ratio: unset;
+	}
+
+	.spotlight .container, .content {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.spotlight__image-block, .basics__image-block {
+		max-width: 390px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.spotlight__description {
+		gap: 10px;
+	}
+
+	.basics .container {
+		flex-direction: column-reverse;
+		gap: 20px;
+	}
+
+	.basics__title {
+		max-width: 285px;
+	}
+}
+
+@media (max-width: 550px) {
+	.burger {
+		display: flex;
+	}
+
+	.header__nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #fff;
+		z-index: 90;
+		padding: 80px 20px 40px;
+		transform: translateX(-100%);
+		transition: transform var(--transition-normal);
+		overflow-y: auto;
+	}
+
+	.header__nav.is-open {
+		transform: translateX(0);
+	}
+
+	.header__list {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 30px;
+	}
+
+	.header__link {
+		font-size: 2.4rem;
+		font-weight: 500;
+	}
+
+	.burger.is-active .burger__line:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	}
+
+	.burger.is-active .burger__line:nth-child(2) {
+		opacity: 0;
+	}
+
+	.burger.is-active .burger__line:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
+	}
+
+	.shipping-banner {
+		display: none;
+	}
+
+	.no-scroll {
+		overflow: hidden;
+	}
+
+	.hero {
+		min-height: calc(100dvh - 69px);
+	}
+
+	.description, .products, .footer {
+		padding: 35px 0;
+	}
+
+	.footer .container {
+		grid-template-columns: repeat(2, 1fr); 
+		gap: 40px;
+	}
+}
+
+@media (max-width: 370px) {
+	.hero {
+		background-position: initial;
+	}
+
+	.button {
+		width: 100%;
+	}
+
+	.card__image-wrapper--razor {
+		position: relative;
+	}
+
+	.card__image-wrapper--razor::after {
+		content: ' Swipe for more →'; 
+		position: absolute;
+		top: 250px;
+		right: 30px;
+		font-size: var(--text-xs);
+		opacity: 0.6;
+		letter-spacing: normal;
+		text-transform: none;
+		white-space: nowrap;
+		font-style: italic;
+		animation: swipeBounce 2s infinite ease-in-out;
+
+		transition: opacity 0.4s ease;
+	}
+
+	.card__image-wrapper--razor.is-hidden::after {
+		opacity: 0;
+		animation: none;
+	}
+
+	@keyframes swipeBounce {
+		0%, 100% {transform: translateX(0);}
+		50% {transform: translateX(4px);}
+	}
+
+	.spotlight__title {
+		max-width: 290px;
+	}
+
+	.footer .container {
+		grid-template-columns: 1fr; 
+	}
+
+	.footer__submit {
+		width: 100%;
+		padding: 12px 0;
+		background-color: var(--color-btn);
+		border-radius: 999px;
 	}
 }
