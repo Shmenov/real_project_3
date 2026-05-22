@@ -23,8 +23,15 @@
 	<meta name="twitter:site" content="@Billie">
 
 	<title>Billie</title>
+	<link rel="preload" href="/img/hero/hero.avif" as="image" type="image/avif" fetchpriority="high" media="(min-width: 751px)">
+	<link rel="preload" href="/img/hero/hero__mobile.avif" as="image" type="image/avif" fetchpriority="high" media="(max-width: 750px)">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+	<noscript>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	</noscript>
 	<link rel="stylesheet" href="/css/style.css">
-	<link rel="preload" href="/img/hero/hero.avif" as="image" type="image/avif" fetchpriority="high">
 </head>
 <body>
 	<header class="header">
@@ -45,7 +52,7 @@
 			</nav>
 
 			<a href="#" class="header__brand" aria-label="Go to homepage">
-				<img src="/img/logo.svg" alt="billie" class="header__brand-icon" loading="eager">
+				<img src="/img/logo.svg" alt="billie" class="header__brand-icon" loading="eager" width="63" height="43">
 			</a>
 
 			<div class="header__menu">
@@ -98,7 +105,7 @@
 
 					<article class="card">
 						<a href="#" class="card__image-wrapper">
-							<img src="/img/cards/card-2.png" alt="Shave Cream" class="card__img">
+							<img src="/img/cards/card-2.png" alt="Shave Cream" class="card__img" loading="lazy">
 						</a>
 						<h3 class="card__title">Shave Cream</h3>
 						<p class="card__text">Rich, fluffy protection</p>
@@ -107,7 +114,7 @@
 
 					<article class="card">
 						<a href="#" class="card__image-wrapper">
-							<img src="/img/cards/card-3.png" alt="Wonder Wipes" class="card__img">
+							<img src="/img/cards/card-3.png" alt="Wonder Wipes" class="card__img" loading="lazy">
 						</a>
 						<h3 class="card__title">Wonder Wipes</h3>
 						<p class="card__text">Gentle, makeup removing</p>
@@ -116,7 +123,7 @@
 
 					<article class="card">
 						<a href="#" class="card__image-wrapper">
-							<img src="/img/cards/card-4.png" alt="Super Salve" class="card__img">
+							<img src="/img/cards/card-4.png" alt="Super Salve" class="card__img" loading="lazy">
 						</a>
 						<h3 class="card__title">Super Salve</h3>
 						<p class="card__text">Buttery daily balm</p>
@@ -130,8 +137,12 @@
 
 		<section class="spotlight">
 			<div class="container">
-				<a href="#" class="spotlight__image-block">
-					<img src="/img/razor.jpg" alt="razor" class="spotlight__img">
+				<a href="#" class="spotlight__image-block" aria-label="View our award-winning razor details">
+					<picture class="spotlight__picture">
+						<source srcset="/img/razor.avif" type="image/avif">
+						<source srcset="/img/razor.webp" type="image/webp">
+						<img src="/img/razor.jpg" alt="razor" class="spotlight__img" loading="lazy">
+					</picture>
 				</a>
 
 				<div class="spotlight__content content">
@@ -159,7 +170,13 @@
 				</div>
 
 				<a href="#" class="basics__image-block">
-					<video class="basics__img" autoplay loop muted playsinline poster="/img/pomade.jpg">
+					<picture class="basics__img-mobile">
+						<source srcset="/img/pomade.avif" type="image/avif">
+						<source srcset="/img/pomade.webp" type="image/webp">
+						<img src="/img/pomade.jpg" alt="Our daily essentials" loading="lazy">
+					</picture>
+
+					<video class="basics__video-desktop" loop muted playsinline poster="/img/pomade.jpg">
 						<source src="/img/pomade.webm" type="video/webm">
 						<source src="/img/pomade.mp4" type="video/mp4">
 						Your browser does not support video.
@@ -187,8 +204,8 @@
 				<a href="mailto:hello@mybillie.com" class="footer__link">hello@mybillie.com</a>
 				<p class="footer__text">We're here:</p>
 				<p class="footer__text">Every day, 10am - 5pm ET</p>
-				<a href="#" class="footer__instagram" aria-label="Billie on Instagram">
-					<img src="/img/instagram.svg" alt="instagram" aria-hidden="true" class="footer__img">
+				<a href="#" target="_blank" class="footer__instagram" aria-label="Billie on Instagram">
+					<img src="/img/instagram.svg" alt="instagram" aria-hidden="true" class="footer__img" width="16" height="16">
 				</a>
 			</div>
 
@@ -210,6 +227,6 @@
 			</div>
 		</div>
 	</footer>
-	<script src="/js/index.js"></script>
+	<script src="/js/index.js" defer></script>
 </body>
 </html>

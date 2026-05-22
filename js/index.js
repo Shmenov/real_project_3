@@ -53,3 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollContainer.addEventListener('scroll', hideHintOnScroll);
   }
 });
+
+if (window.innerWidth > 750) {
+	document.querySelectorAll('.basics__video-desktop').forEach(video => video.play());
+}
