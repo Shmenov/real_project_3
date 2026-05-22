@@ -55,5 +55,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 if (window.innerWidth > 750) {
-	document.querySelectorAll('.basics__video-desktop').forEach(video => video.play());
+  document.querySelectorAll('.basics__video-desktop').forEach(video => {
+    // Сохраняем результат попытки запуска в переменную
+    const playPromise = video.play();
+
+    // Если браузер поддерживает Promise для видео (все современные браузеры)
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        // Мы перехватили ошибку! 
+        // Теперь она не вывалится красным в консоль.
+        // Можно просто оставить блок пустым или вывести аккуратное сообщение:
+        console.log("Видео не запущено: включен режим экономии энергии");
+      });
+    }
+  });
 }
